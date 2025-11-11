@@ -1,0 +1,268 @@
+/* ----------------------------- General ----------------------------- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #fdfdfd;
+  color: #333;
+}
+
+/* ----------------------------- Header ----------------------------- */
+header {
+  background: #f8f8f6;
+  border-bottom: 4px solid #f57c00;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 0 15px;
+}
+.header-center img {
+  width: 120px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background: #f8f8f6;
+  padding: 5px;
+}
+.header-center .text h1 {
+  color: #d35400;
+  margin: 0;
+  font-size: 1.8em;
+}
+.header-center .text p {
+  color: #555;
+  font-size: 1em;
+  margin: 5px 0 0;
+}
+
+/* ----------------------------- Navbar ----------------------------- */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #2b7a0b;
+  padding: 8px 0;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 6px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.navbar a:hover {
+  color: #ffcc00;
+  transform: scale(1.05);
+}
+/* Mobile optimization */
+@media (max-width: 600px) {
+  .navbar {
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    padding: 6px 4px;
+  }
+  .navbar a {
+    margin: 0 8px;
+    font-size: 13px;
+  }
+  .navbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ----------------------------- Hero ----------------------------- */
+.hero {
+  background: url('village.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: darken;
+}
+.hero h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+.hero button {
+  background: #fbc02d;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ----------------------------- Sections ----------------------------- */
+.section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+.section h2 {
+  color: #2b7a0b;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ----------------------------- About Section ----------------------------- */
+.about-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+.about-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.about-gallery img:hover {
+  transform: scale(1.05);
+}
+.about-member p {
+  margin-top: 8px;
+  font-size: 0.95em;
+  text-align: center;
+  color: #333;
+}
+
+/* ----------------------------- Cards ----------------------------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+.card h3 {
+  color: #1f5d07;
+}
+
+/* ----------------------------- Video Gallery ----------------------------- */
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.video-thumbnail:hover {
+  transform: scale(1.03);
+}
+.video-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+.video-thumbnail:hover .play-button {
+  background: rgba(255, 0, 0, 0.8);
+}
+.video-title {
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 600;
+  color: #1f5d07;
+}
+
+/* ----------------------------- Donate ----------------------------- */
+.donate-section {
+  text-align: center;
+  background: #f1f8e9;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+.donate-section img {
+  width: 160px;
+  margin-top: 10px;
+}
+
+/* ----------------------------- Buttons ----------------------------- */
+.btn {
+  background: #2b7a0b;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+.btn:hover {
+  background: #256307;
+}
+
+/* ----------------------------- Footer ----------------------------- */
+footer {
+  background: #1f5d07;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 0.9em;
+}
+
+/* ----------------------------- Responsive ----------------------------- */
+@media (max-width: 600px) {
+  .hero {
+    padding: 50px 15px;
+  }
+  .hero h1 {
+    font-size: 1.6em;
+  }
+  .hero p {
+    font-size: 0.95em;
+  }
+  .header-center img {
+    width: 100px;
+  }
+  nav a {
+    display: block;
+    margin: 8px 0;
+  }
+}
