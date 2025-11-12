@@ -78,30 +78,61 @@
   <p>Be a part of Amola’s growth story. Join us as a volunteer or member today!</p>
 
   <div class="join-form">
-    <form action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse" method="POST" target="_blank">
-      <label for="name">पूरा नाम</label>
-      <input type="text" id="name" name="entry.123456" placeholder="आपका नाम" required>
+   <form id="joinForm">
+  <label for="name">पूरा नाम</label>
+  <input type="text" id="name" name="entry.1670287664" placeholder="आपका नाम" required>
 
-      <label for="email">ईमेल</label>
-      <input type="email" id="email" name="entry.654321" placeholder="आपका ईमेल" required>
+  <label for="email">ईमेल</label>
+  <input type="email" id="email" name="entry.421971899" placeholder="आपका ईमेल" required>
 
-      <label for="phone">फ़ोन नंबर</label>
-      <input type="tel" id="phone" name="entry.112233" placeholder="आपका फ़ोन नंबर" required>
+  <label for="phone">फ़ोन नंबर</label>
+  <input type="tel" id="phone" name="entry.738729535" placeholder="आपका फ़ोन नंबर" required>
 
-      <label for="interest">रुचि का क्षेत्र</label>
-      <select id="interest" name="entry.445566">
-        <option value="">-- कृपया चुनें --</option>
-        <option value="शिक्षा">शिक्षा</option>
-        <option value="स्वयं रोजगार">स्वयं रोजगार</option>
-        <option value="सांस्कृतिक कार्यक्रम">सांस्कृतिक कार्यक्रम</option>
-        <option value="पर्यावरण/सामुदायिक सेवा">पर्यावरण/सामुदायिक सेवा</option>
-      </select>
+  <label for="interest">रुचि का क्षेत्र</label>
+  <select id="interest" name="entry.238501867" required>
+    <option value="">-- कृपया चुनें --</option>
+    <option value="शिक्षा">शिक्षा</option>
+    <option value="स्वयं रोजगार">स्वयं रोजगार</option>
+    <option value="सांस्कृतिक कार्यक्रम">सांस्कृतिक कार्यक्रम</option>
+    <option value="पर्यावरण/सामुदायिक सेवा">पर्यावरण/सामुदायिक सेवा</option>
+  </select>
 
-      <label for="message">संदेश / सुझाव</label>
-      <textarea id="message" name="entry.778899" rows="4" placeholder="कोई संदेश या सुझाव"></textarea>
+  <label for="message">संदेश / सुझाव</label>
+  <textarea id="message" name="entry.728205872" rows="4" placeholder="कोई संदेश या सुझाव"></textarea>
 
-      <button type="submit">फॉर्म सबमिट करें</button>
-    </form>
+  <button type="submit">फॉर्म सबमिट करें</button>
+</form>
+
+<!-- Message placeholder -->
+<p id="formStatus" style="text-align:center; font-weight:600; color:green; display:none; margin-top:10px;">
+  ✅ आपका विवरण सफलतापूर्वक जमा हो गया है! धन्यवाद।
+</p>
+
+<script>
+document.getElementById("joinForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // Stop normal form submission
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSeYvDbrrrmjOMDnSavy_yq8Ah-YG6fy3MKeXmwVjqftavxokg/formResponse", {
+    method: "POST",
+    body: data,
+    mode: "no-cors"
+  })
+  .then(() => {
+    // Show thank you message
+    document.getElementById("formStatus").style.display = "block";
+    // Reset form
+    form.reset();
+  })
+  .catch((error) => {
+    alert("⚠️ सबमिट करते समय कोई त्रुटि हुई, कृपया पुनः प्रयास करें।");
+    console.error("Error!", error.message);
+  });
+});
+</script>
+
   </div>
 </section>
 
@@ -112,3 +143,4 @@
 
 </body>
 </html>
+
