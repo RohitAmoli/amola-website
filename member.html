@@ -1,84 +1,209 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Members - Amola Yuva Shakti Mandal Samiti</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  body { font-family: Arial, sans-serif; margin: 0; }
-  header, footer { text-align: center; padding: 10px; background: #f4f4f4; }
-  h2 { text-align: center; margin-top: 20px; color: #333; }
-  p { text-align: center; color: #555; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Member Login - Amola Yuva Shakti Mandal Samiti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  .login-container, .upload-container {
-    max-width: 400px;
-    margin: 30px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    text-align: center;
-  }
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+      text-align: center;
+    }
 
-  input[type="password"], input[type="file"] {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
+    /* HEADER */
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url('header-bg1.png') center/cover no-repeat;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+    }
 
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
 
-  button:hover {
-    background-color: #0056b3;
-  }
+    .header-center img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
 
-  #uploadSection { display: none; }
+    .header-center h1 {
+      font-size: 1.9em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
 
-  #galleryGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    padding: 20px;
-  }
+    .header-center p {
+      font-size: 1em;
+      font-weight: 300;
+    }
 
-  #galleryGrid img, #galleryGrid video, #galleryGrid iframe {
-    width: 250px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-  }
+    /* NAVBAR */
+    nav.navbar {
+      background-color: #000;
+      padding: 10px 0;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
 
-  #galleryGrid img:hover, #galleryGrid video:hover, #galleryGrid iframe:hover {
-    transform: scale(1.05);
-  }
-</style>
+    nav.navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav.navbar a:hover {
+      color: #00c6ff;
+      transform: scale(1.1);
+      text-shadow: 0 0 10px #00c6ff;
+    }
+
+    /* MEMBER SECTION */
+    section {
+      padding: 50px 20px;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    .login-container, .upload-container {
+      max-width: 450px;
+      margin: 20px auto;
+      padding: 30px;
+      background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
+                  url('header-bg1.png') center/cover fixed;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    h2 {
+      color: #007bff;
+      margin-bottom: 15px;
+      font-size: 1.6em;
+      font-weight: 700;
+    }
+
+    p {
+      color: #555;
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    input[type="password"], input[type="file"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    #uploadSection { display: none; }
+
+    #galleryGrid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    #galleryGrid img, #galleryGrid iframe {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    #galleryGrid img:hover, #galleryGrid iframe:hover {
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 18px 0;
+      font-size: 0.9em;
+      margin-top: 40px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 40px 10px; }
+      .header-center h1 { font-size: 1.5em; }
+      .login-container, .upload-container { width: 90%; padding: 25px 15px; }
+    }
+  </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-center">
     <img src="IMG-20250911-WA0006.jpg" alt="Logo">
-    <div class="text">
-      <h1>Amola Yuva Shakti Mandal Samiti</h1>
-      <p>Empowering Our Village Through Unity, Education & Progress</p>
-    </div>
+    <h1>Amola Yuva Shakti Mandal Samiti</h1>
+    <p>Empowering Our Village Through Unity, Education & Progress</p>
   </div>
 </header>
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
@@ -88,10 +213,11 @@
   <a href="join.html">Join Us</a>
   <a href="donate.html">Support Us</a>
   <a href="contact.html">Contact</a>
-   <a href="member.html">Member Login</a>
+  <a href="member.html">Member Login</a>
 </nav>
 
-<section id="loginSection" class="section">
+<!-- LOGIN SECTION -->
+<section id="loginSection">
   <div class="login-container">
     <h2>Member Login</h2>
     <p>Enter the access code to continue</p>
@@ -101,7 +227,8 @@
   </div>
 </section>
 
-<section id="uploadSection" class="section">
+<!-- UPLOAD SECTION -->
+<section id="uploadSection">
   <div class="upload-container">
     <h2>Media Upload</h2>
     <input type="file" id="fileInput" accept="image/*,video/*">
@@ -113,14 +240,15 @@
   <div id="galleryGrid"></div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br>
   Designed & Managed by Rohit Amoli
 </footer>
 
 <script>
-const apiURL = "https://script.google.com/macros/s/AKfycbzPB8slm1_rbqK0LRppD0wKCRe5_Gpu7WuZBhiBmSFaoFDqzW_xoK0ByI8lo7GPBxeSiQ/exec"; // ✅ Your latest working URL
-const accessCode = "amola2025"; // 🔐 your shared code
+const apiURL = "https://script.google.com/macros/s/AKfycbzPB8slm1_rbqK0LRppD0wKCRe5_Gpu7WuZBhiBmSFaoFDqzW_xoK0ByI8lo7GPBxeSiQ/exec";
+const accessCode = "amola2025";
 
 function checkLogin() {
   const enteredCode = document.getElementById("accessCode").value.trim();
@@ -175,11 +303,7 @@ function uploadFile() {
   const reader = new FileReader();
   reader.onload = function(event) {
     const base64Data = event.target.result.split(",")[1];
-    const payload = {
-      filename: file.name,
-      mimeType: file.type,
-      file: base64Data
-    };
+    const payload = { filename: file.name, mimeType: file.type, file: base64Data };
 
     status.textContent = "Uploading... Please wait.";
 
@@ -212,5 +336,3 @@ function uploadFile() {
 
 </body>
 </html>
-
-
