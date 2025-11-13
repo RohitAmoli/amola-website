@@ -6,12 +6,96 @@
 <title>Join Us - Amola Yuva Shakti Mandal Samiti</title>
 <link rel="stylesheet" href="style.css">
 <style>
+/* General Reset */
+body { margin: 0; font-family: "Segoe UI", sans-serif; background-color: #fafafa; color: #333; }
+
+/* Header Styling with Background */
+header {
+  background: url('header-bg1.png') no-repeat center center/cover;
+  text-align: center;
+  padding: 30px 10px;
+  color: white;
+  position: relative;
+  height: 160px;
+}
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+.header-center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.header-center img {
+  height: 75px;
+  width: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+.header-center .text h1 {
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  margin: 0;
+}
+.header-center .text p {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  margin-top: 5px;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background: black;
+  flex-wrap: wrap;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 18px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.3s ease;
+}
+.navbar a:hover {
+  background: #1a1a1a;
+  color: #00e676;
+}
+
+/* Section Styling */
+.section {
+  text-align: center;
+  padding: 40px 20px;
+}
+.section h2 {
+  color: #2b7a0b;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.section p {
+  color: #444;
+  margin-bottom: 25px;
+}
+
 /* Form Styles */
 .join-form {
   max-width: 500px;
-  margin: 20px auto 0 auto;
-  background: #f8f8f6;
-  padding: 20px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
@@ -27,27 +111,39 @@
 .join-form select,
 .join-form textarea {
   width: 100%;
-  padding: 8px 10px;
+  padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
+  border-radius: 6px;
+  font-size: 15px;
 }
 
 .join-form button {
   background: #2b7a0b;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 5px;
-  font-size: 15px;
+  border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
 }
-
 .join-form button:hover {
   background: #256307;
+  transform: translateY(-2px);
 }
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #111;
+  color: #ddd;
+  padding: 20px 10px;
+  font-size: 14px;
+}
+footer a { color: #00e676; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -71,7 +167,7 @@
   <a href="join.html">Join Us</a>
   <a href="donate.html">Support Us</a>
   <a href="contact.html">Contact</a>
-   <a href="member.html">Member Login</a>
+  <a href="member.html">Member Login</a>
 </nav>
 
 <section id="join" class="section">
@@ -80,38 +176,44 @@
 
   <div class="join-form">
    <form id="joinForm">
-  <label for="name">पूरा नाम</label>
-  <input type="text" id="name" name="entry.1670287664" placeholder="आपका नाम" required>
+      <label for="name">पूरा नाम</label>
+      <input type="text" id="name" name="entry.1670287664" placeholder="आपका नाम" required>
 
-  <label for="email">ईमेल</label>
-  <input type="email" id="email" name="entry.421971899" placeholder="आपका ईमेल" required>
+      <label for="email">ईमेल</label>
+      <input type="email" id="email" name="entry.421971899" placeholder="आपका ईमेल" required>
 
-  <label for="phone">फ़ोन नंबर</label>
-  <input type="tel" id="phone" name="entry.738729535" placeholder="आपका फ़ोन नंबर" required>
+      <label for="phone">फ़ोन नंबर</label>
+      <input type="tel" id="phone" name="entry.738729535" placeholder="आपका फ़ोन नंबर" required>
 
-  <label for="interest">रुचि का क्षेत्र</label>
-  <select id="interest" name="entry.238501867" required>
-    <option value="">-- कृपया चुनें --</option>
-    <option value="शिक्षा">शिक्षा</option>
-    <option value="स्वयं रोजगार">स्वयं रोजगार</option>
-    <option value="सांस्कृतिक कार्यक्रम">सांस्कृतिक कार्यक्रम</option>
-    <option value="पर्यावरण/सामुदायिक सेवा">पर्यावरण/सामुदायिक सेवा</option>
-  </select>
+      <label for="interest">रुचि का क्षेत्र</label>
+      <select id="interest" name="entry.238501867" required>
+        <option value="">-- कृपया चुनें --</option>
+        <option value="शिक्षा">शिक्षा</option>
+        <option value="स्वयं रोजगार">स्वयं रोजगार</option>
+        <option value="सांस्कृतिक कार्यक्रम">सांस्कृतिक कार्यक्रम</option>
+        <option value="पर्यावरण/सामुदायिक सेवा">पर्यावरण/सामुदायिक सेवा</option>
+      </select>
 
-  <label for="message">संदेश / सुझाव</label>
-  <textarea id="message" name="entry.728205872" rows="4" placeholder="कोई संदेश या सुझाव"></textarea>
+      <label for="message">संदेश / सुझाव</label>
+      <textarea id="message" name="entry.728205872" rows="4" placeholder="कोई संदेश या सुझाव"></textarea>
 
-  <button type="submit">फॉर्म सबमिट करें</button>
-</form>
+      <button type="submit">फॉर्म सबमिट करें</button>
+    </form>
 
-<!-- Message placeholder -->
-<p id="formStatus" style="text-align:center; font-weight:600; color:green; display:none; margin-top:10px;">
-  ✅ आपका विवरण सफलतापूर्वक जमा हो गया है! धन्यवाद।
-</p>
+    <p id="formStatus" style="text-align:center; font-weight:600; color:green; display:none; margin-top:10px;">
+      ✅ आपका विवरण सफलतापूर्वक जमा हो गया है! धन्यवाद।
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br>
+  Designed & Managed by Rohit Amoli And Team
+</footer>
 
 <script>
 document.getElementById("joinForm").addEventListener("submit", function(e) {
-  e.preventDefault(); // Stop normal form submission
+  e.preventDefault();
 
   const form = e.target;
   const data = new FormData(form);
@@ -122,9 +224,7 @@ document.getElementById("joinForm").addEventListener("submit", function(e) {
     mode: "no-cors"
   })
   .then(() => {
-    // Show thank you message
     document.getElementById("formStatus").style.display = "block";
-    // Reset form
     form.reset();
   })
   .catch((error) => {
@@ -134,18 +234,5 @@ document.getElementById("joinForm").addEventListener("submit", function(e) {
 });
 </script>
 
-  </div>
-</section>
-
-<footer>
-  © 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br>
-  Designed & Managed by Rohit Amoli And Team
-</footer>
-
 </body>
 </html>
-
-
-
-
-
