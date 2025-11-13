@@ -1,156 +1,203 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Join Us - Amola Yuva Shakti Mandal Samiti</title>
-<link rel="stylesheet" href="style.css">
-<style>
-/* General Reset */
-body { margin: 0; font-family: "Segoe UI", sans-serif; background-color: #fafafa; color: #333; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Us - Amola Yuva Shakti Mandal Samiti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-/* Header Styling */
-header {
-  background: url('header-bg1.png') no-repeat center center/cover;
-  text-align: center;
-  padding: 25px 10px;
-  color: white;
-  position: relative;
-  height: 180px;
-}
-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 0;
-}
-.header-center {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.header-center img {
-  height: 85px;
-  width: 85px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  margin-bottom: 10px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.4);
-  object-fit: cover;
-}
-.header-center .text h1 {
-  font-size: 2em;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-  margin: 0;
-}
-.header-center .text p {
-  font-size: 1.1em;
-  font-weight: 500;
-  color: #f5f5f5;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-  margin-top: 5px;
-}
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: center;
-  background: black;
-  flex-wrap: wrap;
-}
-.navbar a {
-  color: white;
-  text-decoration: none;
-  padding: 12px 18px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: background 0.3s ease;
-}
-.navbar a:hover {
-  background: #1a1a1a;
-  color: #00e676;
-}
+    /* HEADER */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('header-bg1.png') center/cover no-repeat;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+    }
 
-/* Section */
-.section {
-  text-align: center;
-  padding: 40px 20px;
-}
-.section h2 {
-  color: #2b7a0b;
-  font-size: 2em;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.section p {
-  color: #444;
-  margin-bottom: 25px;
-}
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
 
-/* Form Styles */
-.join-form {
-  max-width: 500px;
-  margin: 0 auto;
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+    .header-center img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 0 12px rgba(255,255,255,0.4);
+    }
 
-.join-form label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: #2b7a0b;
-}
+    .header-center h1 {
+      font-size: 1.9em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
 
-.join-form input,
-.join-form select,
-.join-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 15px;
-}
+    .header-center p {
+      font-size: 1em;
+      font-weight: 300;
+    }
 
-.join-form button {
-  background: #2b7a0b;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-}
-.join-form button:hover {
-  background: #256307;
-  transform: translateY(-2px);
-}
+    /* NAVBAR */
+    nav.navbar {
+      background-color: #000;
+      padding: 10px 0;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
 
-/* Footer */
-footer {
-  text-align: center;
-  background: #111;
-  color: #ddd;
-  padding: 20px 10px;
-  font-size: 14px;
-}
-footer a { color: #00e676; text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-</style>
+    nav.navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav.navbar a:hover {
+      color: #00c6ff;
+      transform: scale(1.1);
+      text-shadow: 0 0 10px #00c6ff;
+    }
+
+    /* JOIN SECTION */
+    section#join {
+      padding: 60px 20px;
+      background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
+                  url('header-bg1.png') center/cover fixed;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 1100px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    section#join h2 {
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    section#join p {
+      text-align: center;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .join-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      animation: fadeInUp 1.3s ease;
+    }
+
+    .join-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #007bff;
+    }
+
+    .join-form input,
+    .join-form select,
+    .join-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .join-form button {
+      background: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      font-weight: 600;
+    }
+
+    .join-form button:hover {
+      background: #005ecb;
+      transform: translateY(-2px);
+    }
+
+    #formStatus {
+      text-align: center;
+      font-weight: 600;
+      color: green;
+      display: none;
+      margin-top: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 18px 0;
+      font-size: 0.9em;
+      margin-top: 30px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 40px 10px; }
+      .header-center h1 { font-size: 1.5em; }
+      .join-form { padding: 20px; }
+    }
+  </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-center">
     <img src="IMG-20250911-WA0006.jpg" alt="Logo">
@@ -161,6 +208,7 @@ footer a:hover { text-decoration: underline; }
   </div>
 </header>
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
@@ -173,6 +221,7 @@ footer a:hover { text-decoration: underline; }
   <a href="member.html">Member Login</a>
 </nav>
 
+<!-- JOIN US SECTION -->
 <section id="join" class="section">
   <h2>Join Us</h2>
   <p>Be a part of Amola’s growth story. Join us as a volunteer or member today!</p>
@@ -203,12 +252,11 @@ footer a:hover { text-decoration: underline; }
       <button type="submit">फॉर्म सबमिट करें</button>
     </form>
 
-    <p id="formStatus" style="text-align:center; font-weight:600; color:green; display:none; margin-top:10px;">
-      ✅ आपका विवरण सफलतापूर्वक जमा हो गया है! धन्यवाद।
-    </p>
+    <p id="formStatus">✅ आपका विवरण सफलतापूर्वक जमा हो गया है! धन्यवाद।</p>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br>
   Designed & Managed by Rohit Amoli and Team
