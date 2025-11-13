@@ -4,7 +4,164 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us - Amola Yuva Shakti Mandal Samiti</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url('header-bg1.png') center/cover no-repeat;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-center img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+    }
+
+    .header-center h1 {
+      font-size: 1.9em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .header-center p {
+      font-size: 1em;
+      font-weight: 300;
+    }
+
+    nav.navbar {
+      background-color: #000;
+      padding: 10px 0;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    nav.navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav.navbar a:hover {
+      color: #ffe600;
+      transform: scale(1.1);
+    }
+
+    section#about {
+      padding: 60px 20px;
+      background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                  url('header-bg1.png') center/cover fixed;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 1000px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    section#about h2 {
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.6em;
+      font-weight: 600;
+    }
+
+    section#about p {
+      margin-bottom: 20px;
+      text-align: justify;
+      font-size: 1.05em;
+    }
+
+    .about-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      margin-top: 30px;
+    }
+
+    .about-member {
+      text-align: center;
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .about-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .about-member img {
+      width: 100%;
+      max-width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #007bff;
+    }
+
+    .about-member p {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #333;
+      font-size: 0.95em;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9em;
+      margin-top: 30px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
 
@@ -27,25 +184,20 @@
   <a href="join.html">Join Us</a>
   <a href="donate.html">Support Us</a>
   <a href="contact.html">Contact</a>
-   <a href="member.html">Member Login</a>
+  <a href="member.html">Member Login</a>
 </nav>
 
-<section id="about" class="section">
-  <p><strong>अमोला युवा शक्ति मण्डल समिति</strong>, एक गैर-राजनीतिक, सामाजिक एवं चैरिटेबल संस्था है। इसका उद्देश्य गाँव अमोला और बाहर बसे परिवारों के बीच आपसी सहयोग, एकता और सामाजिक विकास को बढ़ावा देना है।
+<section id="about">
+  <p><strong>अमोला युवा शक्ति मण्डल समिति</strong>, एक गैर-राजनीतिक, सामाजिक एवं चैरिटेबल संस्था है। इसका उद्देश्य गाँव अमोला और बाहर बसे परिवारों के बीच आपसी सहयोग, एकता और सामाजिक विकास को बढ़ावा देना है।<br><br>
+  संस्था के प्रमुख उद्देश्यों में शामिल हैं:<br><br>
+  गाँव के विकास, स्वच्छता, शिक्षा, स्वास्थ्य, संस्कृति, पर्यावरण संरक्षण और सामाजिक जागरूकता के लिए कार्य करना।<br>
+  गाँव और बाहर बसे लोगों के बीच भावनात्मक संबंध एवं सहयोग को मजबूत बनाना।<br>
+  निर्धन, असहाय एवं जरूरतमंद लोगों की सहायता करना तथा महिलाओं के सशक्तिकरण हेतु कार्य करना।<br>
+  गाँव की सांस्कृतिक धरोहर, पारंपरिक ज्ञान और मूल्यों का संरक्षण करना।<br>
+  युवाओं में शिक्षा, रोजगार और सामाजिक सेवा की भावना को प्रोत्साहित करना।<br><br>
+  संस्था का ध्येय है - “स्वच्छ गाँव, स्वस्थ गाँव, शिक्षित गाँव, संस्कारित गाँव, स्वावलंबी गाँव व सशक्त गाँव।”<br><br>
+  यह संस्था पूरी तरह सेवा, सहयोग और समाज कल्याण के उद्देश्य से कार्य करती है और किसी भी प्रकार की राजनीतिक गतिविधियों से दूर रहती है।</p>
 
-संस्था के प्रमुख उद्देश्यों में शामिल हैं:
-
-गाँव के विकास, स्वच्छता, शिक्षा, स्वास्थ्य, संस्कृति, पर्यावरण संरक्षण और सामाजिक जागरूकता के लिए कार्य करना।
-गाँव और बाहर बसे लोगों के बीच भावनात्मक संबंध एवं सहयोग को मजबूत बनाना।
-निर्धन, असहाय एवं जरूरतमंद लोगों की सहायता करना तथा महिलाओं के सशक्तिकरण हेतु कार्य करना।
-गाँव की सांस्कृतिक धरोहर, पारंपरिक ज्ञान और मूल्यों का संरक्षण करना।
-युवाओं में शिक्षा, रोजगार और सामाजिक सेवा की भावना को प्रोत्साहित करना।
-संस्था का ध्येय है-
-“स्वच्छ गाँव, स्वस्थ गाँव, शिक्षित गाँव, संस्कारित गाँव, स्वावलंबी गाँव व सशक्त गाँव।”
-
-यह संस्था पूरी तरह सेवा, सहयोग और समाज कल्याण के उद्देश्य से कार्य करती है और किसी भी प्रकार की राजनीतिक गतिविधियों से दूर रहती है।</p>
-
-<section id="about" class="section">
   <h2>समिति पदाधिकारी विवरण:</h2>
 
   <div class="about-gallery">
@@ -61,34 +213,30 @@
       <img src="about3.jpg" alt="Secretary">
       <p><strong>श्री नरेश<br>अमोली, सचिव</strong></p>
     </div>
-
     <div class="about-member">
-      <img src="about6.jpg" alt="Secretary">
-      <p><strong>श्री मुकेश <br>अमोली, सह  सचिव</strong></p>
+      <img src="about6.jpg" alt="Joint Secretary">
+      <p><strong>श्री मुकेश<br>अमोली, सह सचिव</strong></p>
     </div>
-
     <div class="about-member">
       <img src="about4.jpg" alt="Treasurer">
       <p><strong>श्री सूर्य प्रकाश<br>कोषाध्यक्ष</strong></p>
     </div>
     <div class="about-member">
-      <img src="about5.jpg" alt="Coordinator">
+      <img src="about5.jpg" alt="Media">
       <p><strong>श्री संदीप<br>अमोली, मीडिया प्रभारी</strong></p>
     </div>
-
-<div class="about-member">
-      <img src="about7.jpg" alt="Coordinator">
+    <div class="about-member">
+      <img src="about7.jpg" alt="Cultural Secretary">
       <p><strong>श्री हर्ष मोहन<br>अमोली, सांस्कृतिक सचिव</strong></p>
     </div>
-<div class="about-member">
-      <img src="about8.jpg" alt="Coordinator">
-      <p><strong>श्री सोमदत्त <br>अमोली,  संरक्षक </strong></p>
+    <div class="about-member">
+      <img src="about8.jpg" alt="Patron">
+      <p><strong>श्री सोमदत्त<br>अमोली, संरक्षक</strong></p>
     </div>
-<div class="about-member">
-      <img src="about9.jpg" alt="Coordinator">
-      <p><strong>श्री मधुसूदन <br>अमोली, संरक्षक</strong></p>
+    <div class="about-member">
+      <img src="about9.jpg" alt="Patron">
+      <p><strong>श्री मधुसूदन<br>अमोली, संरक्षक</strong></p>
     </div>
-
   </div>
 </section>
 
@@ -99,4 +247,3 @@
 
 </body>
 </html>
-
