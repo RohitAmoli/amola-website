@@ -1,13 +1,176 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Activities - Amola Yuva Shakti Mandal Samiti</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activities - Amola Yuva Shakti Mandal Samiti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url('header-bg1.png') center/cover no-repeat;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-center img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+    }
+
+    .header-center h1 {
+      font-size: 1.9em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .header-center p {
+      font-size: 1em;
+      font-weight: 300;
+    }
+
+    /* NAVBAR */
+    nav.navbar {
+      background-color: #000;
+      padding: 10px 0;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    nav.navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav.navbar a:hover {
+      color: #00c6ff;
+      transform: scale(1.1);
+      text-shadow: 0 0 10px #00c6ff;
+    }
+
+    /* ACTIVITIES SECTION */
+    section#activities {
+      padding: 60px 20px;
+      background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
+                  url('header-bg1.png') center/cover fixed;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 1100px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    section#activities h2 {
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.8em;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeInUp 1.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      color: #007bff;
+      margin-bottom: 12px;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 1em;
+      text-align: justify;
+      color: #444;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 18px 0;
+      font-size: 0.9em;
+      margin-top: 30px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 40px 10px; }
+      .header-center h1 { font-size: 1.5em; }
+      .cards { grid-template-columns: 1fr; }
+      .card { padding: 20px; }
+    }
+  </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-center">
     <img src="IMG-20250911-WA0006.jpg" alt="Logo">
@@ -18,6 +181,7 @@
   </div>
 </header>
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
@@ -27,9 +191,10 @@
   <a href="join.html">Join Us</a>
   <a href="donate.html">Support Us</a>
   <a href="contact.html">Contact</a>
-   <a href="member.html">Member Login</a>
+  <a href="member.html">Member Login</a>
 </nav>
 
+<!-- ACTIVITIES SECTION -->
 <section id="activities" class="section">
   <h2>Our Key Initiatives</h2>
   <div class="cards">
@@ -37,14 +202,17 @@
       <h3>💧 Sustainable Water Management Initiative</h3>
       <p>गांव में लंबे समय से पानी की समस्या बनी हुई है। समिति इस दिशा में लगातार प्रयासरत है — नई जल टंकियों की स्थापना, पाइपलाइन सुधार तथा गांव में स्वच्छ पेयजल की व्यवस्था करने के लिए प्रशासनिक अधिकारियों से संपर्क किया जा रहा है। साथ ही, हम लोगों को जल के उचित उपयोग और बर्बादी रोकने के लिए जागरूक भी कर रहे हैं। हमारा लक्ष्य है कि हर घर तक पर्याप्त और स्वच्छ पानी पहुँचे।</p>
     </div>
+
     <div class="card">
       <h3>📚 Education</h3>
       <p>समिति गांव के बच्चों को बेहतर शिक्षा उपलब्ध कराने के लिए कार्य कर रही है। निशुल्क ट्यूशन क्लास, पढ़ाई में सहायता, डिजिटल शिक्षा की जानकारी और प्रतियोगी परीक्षाओं के लिए मार्गदर्शन उपलब्ध कराया जा रहा है। हमारा उद्देश्य है कि हर बच्चे को शिक्षा का अवसर मिले और वे आत्मनिर्भर बनें।</p>
     </div>
+
     <div class="card">
       <h3>💼 Self Employment</h3>
       <p>समिति गांव के युवाओं को रोजगार के अवसर प्रदान करने के लिए उन्हें स्व-रोजगार और उद्यमिता की ओर प्रेरित कर रही है। इसके अंतर्गत सरकारी योजनाओं की जानकारी, प्रशिक्षण शिविर, कृषि आधारित व्यवसाय और लघु उद्योगों को बढ़ावा दिया जा रहा है। हमारा विश्वास है कि आत्मनिर्भर युवा ही सशक्त समाज की नींव हैं।</p>
     </div>
+
     <div class="card">
       <h3>🎭 Cultural Programs</h3>
       <p>गांव की परंपराओं और संस्कृति को जीवित रखने के लिए समिति विभिन्न सांस्कृतिक कार्यक्रमों का आयोजन करती है। इसमें त्यौहारों का सामूहिक आयोजन, खेलकूद प्रतियोगिताएँ, लोकगीत और नाट्य मंचन शामिल हैं। इन कार्यक्रमों से गांव में एकता, भाईचारा और सामाजिक जागरूकता बढ़ती है।</p>
@@ -52,6 +220,7 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br>
   Designed & Managed by Rohit Amoli
@@ -59,6 +228,3 @@
 
 </body>
 </html>
-
-
-
