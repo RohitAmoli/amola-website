@@ -3,13 +3,106 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Amola Yuva Shakti Mandal Samiti</title>
-<link rel="stylesheet" href="style.css">
+<title>Gallery - Amola Yuva Shakti Mandal Samiti</title>
+
 <style>
-  body { font-family: Arial, sans-serif; margin: 0; }
-  header, footer { text-align: center; padding: 10px; background: #f4f4f4; }
-  h2 { text-align: center; margin-top: 20px; color: #333; }
-  p { text-align: center; color: #555; }
+  body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    color: #333;
+    text-align: center;
+  }
+
+  /* HEADER */
+  header {
+    background: url('header-bg1.png') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+    position: relative;
+  }
+
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
+  }
+
+  .header-center {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid white;
+  }
+
+  header .text h1 {
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    margin: 10px 0 5px;
+  }
+
+  header .text p {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #f0f0f0;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+  }
+
+  /* NAVBAR */
+  .navbar {
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    transition: background 0.3s;
+    font-weight: 500;
+  }
+
+  .navbar a:hover {
+    background-color: #333;
+  }
+
+  /* GALLERY SECTION */
+  #gallery {
+    padding: 40px 20px;
+  }
+
+  #gallery h2 {
+    font-size: 1.8em;
+    color: #222;
+    margin-bottom: 10px;
+  }
+
+  #gallery p {
+    color: #555;
+    margin-bottom: 30px;
+  }
 
   .gallery-grid {
     display: flex;
@@ -20,23 +113,40 @@
   }
 
   .gallery-grid img,
-  .gallery-grid video {
-    width: 250px;
+  .gallery-grid iframe {
+    width: 260px;
     height: 180px;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
   }
 
   .gallery-grid img:hover,
-  .gallery-grid video:hover {
+  .gallery-grid iframe:hover {
     transform: scale(1.05);
+  }
+
+  /* FOOTER */
+  footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 600px) {
+    header .text h1 { font-size: 1.4em; }
+    header .text p { font-size: 1em; }
+    header img { width: 80px; }
   }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-center">
     <img src="IMG-20250911-WA0006.jpg" alt="Logo">
@@ -47,29 +157,33 @@
   </div>
 </header>
 
-
+<!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
-  <a href="activities.html">Activities</a>
-  <a href="live.html">Live Program</a>
+  <a href="activities.html">Initiatives</a>
+  <a href="live.html">Live</a>
   <a href="gallery.html">Gallery</a>
   <a href="join.html">Join Us</a>
-  <a href="donate.html">Support</a>
+  <a href="donate.html">Support Us</a>
   <a href="contact.html">Contact</a>
   <a href="member.html">Member Login</a>
 </nav>
+
+<!-- GALLERY SECTION -->
 <section id="gallery" class="section">
   <h2>Gallery</h2>
-  <p>Videos & Photos from our events, campaigns and cultural programs.</p>
+  <p>Videos & Photos from our events, campaigns, and cultural programs.</p>
   <div id="galleryGrid" class="gallery-grid"></div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br>
   Designed & Managed by Rohit Amoli
 </footer>
 
+<!-- SCRIPT: Load images/videos from Google Drive -->
 <script>
 const apiURL = "https://script.google.com/macros/s/AKfycbz2kXjBWakKicBopx4dW-nZzyymKDaUq6L6FEEwILizhqKIUoPVgxdhnzHPeli09RYAMg/exec";
 
@@ -83,20 +197,19 @@ fetch(apiURL)
 
       if (file.type === "image") {
         let img = document.createElement("img");
-        img.src = `https://lh3.googleusercontent.com/d/${file.id}=w800`; // direct image link
+        img.src = `https://lh3.googleusercontent.com/d/${file.id}=w800`;
         img.alt = file.name;
         wrapper.appendChild(img);
       } 
       else if (file.type === "video") {
-  let iframe = document.createElement("iframe");
-  iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
-  iframe.width = "100%";
-  iframe.height = "240";
-  iframe.allow = "autoplay";
-  iframe.frameBorder = "0";
-  wrapper.appendChild(iframe);
-}
-
+        let iframe = document.createElement("iframe");
+        iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
+        iframe.width = "100%";
+        iframe.height = "240";
+        iframe.allow = "autoplay";
+        iframe.frameBorder = "0";
+        wrapper.appendChild(iframe);
+      }
       grid.appendChild(wrapper);
     });
   })
@@ -105,6 +218,3 @@ fetch(apiURL)
 
 </body>
 </html>
-
-
-
