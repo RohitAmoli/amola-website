@@ -1,16 +1,211 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact - Amola Yuva Shakti Mandal Samiti</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Amola Yuva Shakti Mandal Samiti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      background: url('header-bg1.png') no-repeat center center/cover;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+      z-index: 1;
+    }
+
+    .header-center {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.6s ease-in-out;
+    }
+
+    .header-center img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 15px rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+      transition: transform 0.4s ease;
+    }
+
+    .header-center img:hover {
+      transform: scale(1.08);
+    }
+
+    .header-center h1 {
+      font-size: 2.2em;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin: 0;
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+    }
+
+    .header-center p {
+      font-size: 1.1em;
+      font-weight: 400;
+      margin-top: 8px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: linear-gradient(90deg, #111, #222);
+      text-align: center;
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 500;
+      font-size: 1em;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .navbar a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0%;
+      height: 2px;
+      background: #00c6ff;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar a:hover {
+      color: #00c6ff;
+      text-shadow: 0 0 10px #00c6ff;
+    }
+
+    .navbar a:hover::after {
+      width: 50%;
+    }
+
+    /* CONTACT SECTION */
+    .contact-section {
+      background: url('header-bg9.png') no-repeat center center/cover;
+      position: relative;
+      color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .contact-section .content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .contact-section h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #00c6ff;
+      font-weight: 700;
+    }
+
+    .contact-section p {
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin: 10px 0;
+    }
+
+    .contact-section a {
+      color: #00c6ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .contact-section a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #00c6ff;
+    }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(90deg, #111, #222);
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.95em;
+      line-height: 1.6;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    }
+
+    footer b {
+      color: #00c6ff;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media (max-width: 600px) {
+      header { height: 200px; }
+      .contact-section { padding: 70px 15px; }
+      .contact-section h2 { font-size: 1.7em; }
+    }
+  </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-center">
-    <img src="IMG-20250911-WA0006.jpg" alt="Logo">
+    <img src="IMG-20250911-WA0006.jpg" alt="Amola Logo">
     <div class="text">
       <h1>Amola Yuva Shakti Mandal Samiti</h1>
       <p>Empowering Our Village Through Unity, Education & Progress</p>
@@ -18,6 +213,7 @@
   </div>
 </header>
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
@@ -27,27 +223,29 @@
   <a href="join.html">Join Us</a>
   <a href="donate.html">Support Us</a>
   <a href="contact.html">Contact</a>
-   <a href="member.html">Member Login</a>
+  <a href="member.html">Member Login</a>
 </nav>
 
-<section id="contact" class="section">
-  <h2>Contact Us</h2>
-  <p>📍 Amola Village, Pauri Garhwal, Uttarakhand</p>
-  <p>📧 Email: contact@amolayuvashaktimandalsamiti.org</p>
-  <p>☎️ Phone: +91 XXXXX XXXXX</p>
-  <p>🌐 Follow us:
-    <a href="https://facebook.com/YOURPAGE" style="color:#2b7a0b;">Facebook</a> |
-    <a href="https://youtube.com/YOURCHANNEL" style="color:#2b7a0b;">YouTube</a> |
-    <a href="https://instagram.com/YOURPAGE" style="color:#2b7a0b;">Instagram</a>
-  </p>
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="content">
+    <h2>Contact Us</h2>
+    <p>📍 <b>Amola Village, Pauri Garhwal, Uttarakhand</b></p>
+    <p>📧 <b>Email:</b> <a href="mailto:contact@amolayuvashaktimandalsamiti.org">contact@amolayuvashaktimandalsamiti.org</a></p>
+    <p>☎️ <b>Phone:</b> +91 XXXXX XXXXX</p>
+    <p>🌐 <b>Follow Us:</b><br>
+      <a href="https://facebook.com/YOURPAGE" target="_blank">Facebook</a> |
+      <a href="https://youtube.com/YOURCHANNEL" target="_blank">YouTube</a> |
+      <a href="https://instagram.com/YOURPAGE" target="_blank">Instagram</a>
+    </p>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br>
-  Designed & Managed by Rohit Amoli
+  Designed & Managed by <b>Rohit Amoli and Team</b>
 </footer>
 
 </body>
 </html>
-
-
