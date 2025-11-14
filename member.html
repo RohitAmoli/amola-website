@@ -232,7 +232,7 @@ function loadMembers() {
 
       let headers = rows[0].split(",");
 
-      headers = headers.slice(2);   // HIDE COLUMN 1 & 2
+      headers = headers.slice(1);   // HIDE COLUMN 1 & 2
 
       const tableHeader = document.getElementById("memberTableHeader");
       tableHeader.innerHTML = "";
@@ -293,3 +293,4 @@ function filterMembers() {
 
 </body>
 </html>
+
