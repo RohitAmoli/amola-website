@@ -12,7 +12,7 @@
     /* HEADER */
     header {
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('header-bg1.png') center/cover no-repeat;
-      color: white; padding: 40px 20px; text-align: center; animation: fadeInDown 1s ease-in-out;
+      color: white; padding: 60px 20px; text-align: center; animation: fadeInDown 1s ease-in-out;
     }
     .header-center { display:flex; flex-direction: column; align-items:center; gap:10px; }
     .header-center img { width:110px; height:110px; border-radius:50%; object-fit:cover; border:3px solid white; box-shadow:0 0 15px rgba(255,255,255,0.3); }
@@ -40,8 +40,8 @@
     .tabContent { animation: fadeInUp 0.8s ease-in-out; margin-top:20px; }
 
     #galleryGrid { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; padding:20px; }
-    #galleryGrid img, #galleryGrid iframe { width:250px; height:180px; object-fit:cover; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
-    #galleryGrid img:hover, #galleryGrid iframe:hover { transform: scale(1.05); }
+    #galleryGrid img, #galleryGrid video { width:250px; height:180px; object-fit:cover; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
+    #galleryGrid img:hover, #galleryGrid video:hover { transform: scale(1.05); }
 
     #memberTable { width:100%; margin-top:20px; border-collapse:collapse; display:block; max-height:400px; overflow-y:auto; }
     #memberTable thead { position: sticky; top:0; }
@@ -134,10 +134,10 @@
 </footer>
 
 <script>
-
-const apiURL = "https://script.google.com/macros/s/AKfycbzPB8slm1_rbqK0LRppD0wKCRe5_Gpu7WuZBhiBmSFaoFDqzW_xoK0ByI8lo7GPBxeSiQ/exec";
+const apiURL = "https://script.google.com/macros/s/AKfycbzyvSqvYjDkGPapWgsXmT6hNnpj30w6slUf3Q4qyuapf5VS4cxeCBvT-xz0-0LlrpoQsg/exec"; // Replace with your Web App URL
 const accessCode = "amola2025";
 
+// LOGIN
 function checkLogin() {
   const enteredCode = document.getElementById("accessCode").value.trim();
   const message = document.getElementById("loginMessage");
@@ -160,12 +160,14 @@ function logoutMember() {
   document.getElementById("loginMessage").textContent = "";
 }
 
+// TABS
 function openTab(tabId) {
   const tabs = document.getElementsByClassName("tabContent");
   for (let tab of tabs) tab.style.display = "none";
   document.getElementById(tabId).style.display = "block";
 }
 
+// MEDIA GALLERY
 function loadGallery() {
   fetch(apiURL)
     .then(res => res.json())
@@ -177,18 +179,16 @@ function loadGallery() {
 
         if (file.type === "image") {
           const img = document.createElement("img");
-          img.src = `https://lh3.googleusercontent.com/d/${file.id}=w800`;
+          img.src = `https://drive.google.com/uc?export=view&id=${file.id}`;
           img.alt = file.name;
           wrapper.appendChild(img);
 
         } else if (file.type === "video") {
-          const iframe = document.createElement("iframe");
-          iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
-          iframe.width = "100%";
-          iframe.height = "240";
-          iframe.allow = "autoplay";
-          iframe.frameBorder = "0";
-          wrapper.appendChild(iframe);
+          const video = document.createElement("video");
+          video.src = `https://drive.google.com/uc?export=view&id=${file.id}`;
+          video.controls = true;
+          video.muted = true;
+          wrapper.appendChild(video);
         }
 
         grid.appendChild(wrapper);
@@ -197,62 +197,89 @@ function loadGallery() {
     .catch(err => console.error("Error loading gallery:", err));
 }
 
-  
-/* ---------------------------------------------------
-   UPDATED LOAD MEMBERS (ONLY COLUMN-1 REMOVE + SKIP EMPTY ROWS)
------------------------------------------------------ */
+// UPLOAD FILE
+function uploadFile() {
+  const fileInput = document.getElementById("fileInput");
+  const status = document.getElementById("uploadStatus");
+
+  if (fileInput.files.length === 0) {
+    status.textContent = "Please select a file.";
+    status.style.color = "red";
+    return;
+  }
+
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    const base64Data = e.target.result.split(",")[1];
+
+    const formData = new URLSearchParams();
+    formData.append("fileName", file.name);
+    formData.append("fileData", base64Data);
+    formData.append("mimeType", file.type);
+
+    status.textContent = "Uploading...";
+    status.style.color = "blue";
+
+    fetch(apiURL, {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        status.textContent = "Upload successful!";
+        status.style.color = "green";
+        fileInput.value = "";
+        loadGallery();
+      } else {
+        status.textContent = "Upload failed: " + (data.message || "Unknown error");
+        status.style.color = "red";
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      status.textContent = "Error uploading file.";
+      status.style.color = "red";
+    });
+  };
+
+  reader.readAsDataURL(file);
+}
+
+// LOAD MEMBERS
 function loadMembers() {
   const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQMXTRIOrP0xYcPWd0JoinzcQpxa2v8cjsF40l_QnTlcOchBelbWxX97t33osgrPoHjMMiE6ulMlGbM/pub?output=csv";
 
   fetch(csvUrl)
     .then(res => res.text())
     .then(data => {
-
       const rows = data.split("\n").filter(r => r.trim() !== "");
-
-      let headers = rows[0].split(",");
-      headers = headers.slice(1);  // REMOVE ONLY FIRST COLUMN
+      let headers = rows[0].split(",").slice(1);
 
       const tableHeader = document.getElementById("memberTableHeader");
       tableHeader.innerHTML = "<th>S.No</th>";
-
-      headers.forEach(h => {
-        tableHeader.innerHTML += `<th>${h}</th>`;
-      });
+      headers.forEach(h => { tableHeader.innerHTML += `<th>${h}</th>`; });
 
       const tableBody = document.getElementById("memberTableBody");
       tableBody.innerHTML = "";
-
       let serial = 1;
 
       for (let i = 1; i < rows.length; i++) {
-
-        let cells = rows[i].split(",");
-
-        // skip empty row
-        if (cells.slice(1).every(c => c.trim() === "")) continue;
-
-        // remove only column 1
-        cells = cells.slice(1);
+        let cells = rows[i].split(",").slice(1);
+        if (cells.every(c => c.trim() === "")) continue;
 
         const row = document.createElement("tr");
-
-        row.innerHTML += `<td>${serial}</td>`;
-        serial++;
-
-        cells.forEach(c => {
-          row.innerHTML += `<td>${c}</td>`;
-        });
-
+        row.innerHTML += `<td>${serial}</td>`; serial++;
+        cells.forEach(c => { row.innerHTML += `<td>${c}</td>`; });
         tableBody.appendChild(row);
       }
-
     })
     .catch(err => console.error("Error loading members:", err));
 }
 
-
-/* SEARCH FILTER */
+// FILTER MEMBERS
 function filterMembers() {
   const filter = document.getElementById("memberSearch").value.toUpperCase();
   const table = document.getElementById("memberTable");
@@ -261,21 +288,16 @@ function filterMembers() {
   for(let i = 1; i < tr.length; i++){
     let tdArr = tr[i].getElementsByTagName("td");
     let visible = false;
-
     for(let td of tdArr){
       if(td.textContent.toUpperCase().indexOf(filter) > -1){
         visible = true;
         break;
       }
     }
-
     tr[i].style.display = visible ? "" : "none";
   }
 }
-
 </script>
 
 </body>
 </html>
-
-
