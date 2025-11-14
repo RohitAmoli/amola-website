@@ -46,7 +46,6 @@
 
     /* Member Table */
     #memberTable { width:100%; margin-top:20px; border-collapse:collapse; display:block; max-height:400px; overflow-y:auto; }
-    #memberTable thead { position: sticky; top:0; }
     #memberTable th, #memberTable td { border:1px solid #ccc; padding:8px; text-align:left; }
     #memberTable th { background:#007bff; color:white; }
 
@@ -131,15 +130,19 @@
   <!-- Member List Tab -->
   <div id="memberTab" class="tabContent" style="display:none;">
     <h2>Registered Members</h2>
-    <p>Search members:</p>
-    <input type="text" id="memberSearch" placeholder="Search members..." onkeyup="filterMembers()">
-    <p>Or download complete list:</p>
+    <p>Download complete list:</p>
     <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMXTRIOrP0xYcPWd0JoinzcQpxa2v8cjsF40l_QnTlcOchBelbWxX97t33osgrPoHjMMiE6ulMlGbM/pub?output=csv" target="_blank">
       <button>Download CSV</button>
     </a>
     <div style="overflow-x:auto; max-height:400px; margin-top:10px;">
       <table id="memberTable">
-        <thead><tr id="memberTableHeader"></tr></thead>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile No</th>
+          </tr>
+        </thead>
         <tbody id="memberTableBody"></tbody>
       </table>
     </div>
@@ -165,7 +168,7 @@ function checkLogin() {
     document.getElementById("uploadSection").style.display = "block";
     loadGallery();
     loadMembers();
-    openTab('mediaTab'); 
+    openTab('memberTab'); // Show Member List by default
   } else {
     message.textContent = "Invalid code. Please try again.";
   }
@@ -263,35 +266,28 @@ function loadMembers() {
     .then(data => {
       const rows = data.split("\n").filter(r=>r.trim()!=="");
       const headers = rows[0].split(",");
-      const tableHeader = document.getElementById("memberTableHeader");
-      tableHeader.innerHTML = "";
-      headers.forEach(h=>{ tableHeader.innerHTML += `<th>${h}</th>`; });
+
+      const nameIndex = headers.indexOf("Name");
+      const emailIndex = headers.indexOf("Email");
+      const mobileIndex = headers.indexOf("Mobile");
 
       const tableBody = document.getElementById("memberTableBody");
       tableBody.innerHTML = "";
-      for(let i=1;i<rows.length;i++){
+
+      for (let i = 1; i < rows.length; i++) {
         const cells = rows[i].split(",");
-        const row = document.createElement("tr");
-        cells.forEach(c=>{ row.innerHTML += `<td>${c}</td>`; });
-        tableBody.appendChild(row);
+        if(cells.length > 1){
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${cells[nameIndex] || ""}</td>
+            <td>${cells[emailIndex] || ""}</td>
+            <td>${cells[mobileIndex] || ""}</td>
+          `;
+          tableBody.appendChild(row);
+        }
       }
     })
-    .catch(err=>console.error("Error loading members:", err));
-}
-
-// FILTER MEMBERS
-function filterMembers() {
-  const filter = document.getElementById("memberSearch").value.toUpperCase();
-  const table = document.getElementById("memberTable");
-  const tr = table.getElementsByTagName("tr");
-  for(let i=1;i<tr.length;i++){
-    let tdArr = tr[i].getElementsByTagName("td");
-    let visible = false;
-    for(let td of tdArr){
-      if(td.textContent.toUpperCase().indexOf(filter)>-1){ visible = true; break; }
-    }
-    tr[i].style.display = visible?"":"none";
-  }
+    .catch(err => console.error("Error loading members:", err));
 }
 </script>
 
