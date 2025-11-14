@@ -40,8 +40,9 @@
     .tabContent { animation: fadeInUp 0.8s ease-in-out; margin-top:20px; }
 
     #galleryGrid { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; padding:20px; }
-    #galleryGrid img, #galleryGrid video { width:250px; height:180px; object-fit:cover; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
-    #galleryGrid img:hover, #galleryGrid video:hover { transform: scale(1.05); }
+    #galleryGrid img { width:250px; height:180px; object-fit:cover; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
+    #galleryGrid iframe { width:250px; height:180px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
+    #galleryGrid img:hover, #galleryGrid iframe:hover { transform: scale(1.05); }
 
     #memberTable { width:100%; margin-top:20px; border-collapse:collapse; display:block; max-height:400px; overflow-y:auto; }
     #memberTable thead { position: sticky; top:0; }
@@ -167,7 +168,7 @@ function openTab(tabId) {
   document.getElementById(tabId).style.display = "block";
 }
 
-// MEDIA GALLERY
+// MEDIA GALLERY (FIXED VIDEO LINKS)
 function loadGallery() {
   fetch(apiURL)
     .then(res => res.json())
@@ -184,11 +185,14 @@ function loadGallery() {
           wrapper.appendChild(img);
 
         } else if (file.type === "video") {
-          const video = document.createElement("video");
-          video.src = `https://drive.google.com/uc?export=view&id=${file.id}`;
-          video.controls = true;
-          video.muted = true;
-          wrapper.appendChild(video);
+          const iframe = document.createElement("iframe");
+          iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
+          iframe.width = "250";
+          iframe.height = "180";
+          iframe.allow = "autoplay";
+          iframe.frameBorder = "0";
+          iframe.style.borderRadius = "10px";
+          wrapper.appendChild(iframe);
         }
 
         grid.appendChild(wrapper);
