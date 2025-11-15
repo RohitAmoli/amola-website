@@ -238,30 +238,39 @@
 </section>
 
 <!-- FOOTER -->
+<!-- FOOTER -->
 <footer>
-  <div>
-    © 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br>
-    Designed & Managed by <b>Rohit Amoli and Team</b>
-  </div>
-
-  <!-- Visitor Counter -->
-  <div id="visitorCounter">
-    👥 Visitors: <span id="visitorNumber">0</span>
+  <div style="max-width:1100px; margin:0 auto; padding:15px 20px; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:15px;">
+    
+    <!-- Footer Text -->
+    <div style="color:white; font-size:0.9em; text-align:center;">
+      © 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br>
+      Designed & Managed by <b>Rohit Amoli</b>
+    </div>
+    
+    <!-- Visitor Counter -->
+    <div id="visitorCounter" style="background:#e0f0ff; color:#007bff; font-weight:600; font-size:0.85em; padding:6px 12px; border-radius:12px; display:inline-flex; align-items:center; gap:6px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+      <span>👥 Visitors:</span>
+      <span id="visitorNumber">0</span>
+    </div>
   </div>
 </footer>
 
-<!-- GLOBAL VISITOR COUNTER SCRIPT -->
+<!-- Visitor Counter Script -->
 <script>
-fetch("https://api.countapi.xyz/hit/amola-website/total_visitors")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("visitorNumber").textContent = data.value;
-  })
-  .catch(err => console.error("Visitor counter error:", err));
+  // CountAPI: Increment and fetch visitor count
+  fetch("https://api.countapi.xyz/hit/amola-website/total_visitors?cacheBuster=" + Math.random())
+    .then(res => res.json())
+    .then(data => {
+      // Display the current visitor count
+      document.getElementById("visitorNumber").textContent = data.value;
+    })
+    .catch(err => console.error("Error fetching visitor count:", err));
 </script>
 
 </body>
 </html>
+
 
 
 
