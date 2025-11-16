@@ -41,7 +41,7 @@
     border-bottom: 1px solid var(--accent);
   }
 
-  /* ===== HEADER ===== */
+  /* ===== HEADER FROM FIRST PAGE ===== */
   header {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                 url('header-bg1.png') center/cover no-repeat;
@@ -74,12 +74,13 @@
     font-weight: 300;
   }
 
-  /* NAVBAR */
   nav.navbar {
     background-color: #000;
     padding: 10px 0;
     text-align: center;
     animation: fadeIn 1.2s ease-in-out;
+    overflow-x: auto;
+    white-space: nowrap;
   }
   nav.navbar a {
     color: white;
@@ -87,32 +88,117 @@
     margin: 0 12px;
     font-weight: 500;
     transition: color 0.3s, transform 0.3s;
+    display: inline-block;
   }
   nav.navbar a:hover {
     color: #ffe600;
     transform: scale(1.1);
   }
 
-  /* CAROUSEL & CARDS */
-  .carousel-wrap { position: relative; width: 100%; height: 420px; overflow: hidden; }
-  .carousel { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-  .slides { display: flex; width: 100%; height: 100%; transition: transform .7s cubic-bezier(.22,.9,.3,1); }
-  .slide { min-width: 100%; height: 100%; position: relative; background-size: cover; background-position: center center; display: flex; align-items: center; justify-content: center; color: #fff; }
-  .slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55)); }
-  .slide-content { position: relative; z-index: 2; max-width: 900px; padding: 20px; text-align: center; }
+  /* ===== CAROUSEL & CARDS (kept same) ===== */
+  .carousel-wrap {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+  }
+  .carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform .7s cubic-bezier(.22,.9,.3,1);
+  }
+  .slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  .slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
+  }
+  .slide-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 20px;
+    text-align: center;
+  }
   .slide-content h2 { font-size:2rem; margin-bottom:10px; text-shadow:2px 3px 16px rgba(0,0,0,0.6); }
   .slide-content p { font-size:1.05rem; margin-bottom:18px; }
-  .slide-content .cta { background: linear-gradient(90deg, var(--primary), var(--accent)); padding: 12px 26px; border-radius: 30px; color: #fff; text-decoration: none; font-weight: 600; display: inline-block; box-shadow: 0 6px 18px rgba(0,123,255,0.25); }
+  .slide-content .cta {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    padding: 12px 26px;
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 6px 18px rgba(0,123,255,0.25);
+  }
   .slide-content .cta:hover { transform: translateY(-3px); }
 
-  .arrow { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.45); color:#fff; border:2px solid rgba(255,255,255,0.12); cursor:pointer; z-index:4; backdrop-filter:blur(6px); transition:.22s; }
+  .arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,0.45);
+    color:#fff;
+    border:2px solid rgba(255,255,255,0.12);
+    cursor:pointer;
+    z-index:4;
+    backdrop-filter:blur(6px);
+    transition:.22s;
+  }
   .arrow:hover{transform:translateY(-50%) scale(1.06);background:rgba(0,0,0,0.6);}
   .arrow-left{left:14px;}
   .arrow-right{right:14px;}
 
-  .dots { position:absolute; left:50%; bottom:14px; transform:translateX(-50%); display:flex; gap:8px; z-index:5; }
-  .dot { width:12px; height:12px; border-radius:50%; background:rgba(255,255,255,0.35); cursor:pointer; transition:.22s; border:2px solid rgba(255,255,255,0.08); }
-  .dot.active { background:var(--accent); transform:scale(1.15); box-shadow:0 6px 18px rgba(0,198,255,0.18); }
+  .dots{
+    position:absolute;
+    left:50%;
+    bottom:14px;
+    transform:translateX(-50%);
+    display:flex;
+    gap:8px;
+    z-index:5;
+  }
+  .dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.35);
+    cursor:pointer;
+    transition:.22s;
+    border:2px solid rgba(255,255,255,0.08);
+  }
+  .dot.active{
+    background:var(--accent);
+    transform:scale(1.15);
+    box-shadow:0 6px 18px rgba(0,198,255,0.18);
+  }
 
   .cards{display:flex;gap:20px;justify-content:center;padding:36px 18px;flex-wrap:wrap}
   .card{background:#fff;padding:20px;border-radius:16px;width:280px;box-shadow:0 8px 22px rgba(0,0,0,0.08);transition:.25s}
@@ -127,30 +213,28 @@
   #topBtn{position:fixed;right:22px;bottom:22px;background:var(--accent);color:#fff;border-radius:50%;width:46px;height:46px;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,0.2);font-size:18px;z-index:999}
   #topBtn:hover{transform:scale(1.08)}
 
+  /* responsive */
+  @media (max-width:900px){ 
+    .slide-content h2{font-size:1.6rem} 
+  }
+  @media (max-width:600px){ 
+    .arrow{width:36px;height:36px;}
+    .slide-content h2{font-size:1.4rem} 
+    header{padding:20px 10px}
+    .header-center img{width:70px;height:70px}
+    .header-center h1{font-size:1.3rem}
+    .header-center p{font-size:0.8rem}
+    .carousel-wrap{height:250px}
+    .dot{width:10px;height:10px}
+
+    /* Navbar horizontal scroll for mobile */
+    nav.navbar { overflow-x:auto; white-space:nowrap; }
+    nav.navbar a { display:inline-block; margin:0 8px; }
+  }
+
   /* ANIMATIONS */
   @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-  /* ===== MOBILE RESPONSIVE ===== */
-  @media (max-width:900px){
-    header { padding: 25px 15px; }
-    .header-center img { width: 90px; height: 90px; }
-    .header-center h1 { font-size: 1.6rem; }
-    .header-center p { font-size: 0.9rem; }
-    .slide-content h2 { font-size: 1.6rem; }
-    .cards{flex-direction: column; align-items:center;}
-  }
-  @media (max-width:600px){
-    header { padding: 20px 10px; }
-    .header-center img { width: 70px; height: 70px; }
-    .header-center h1 { font-size: 1.3rem; }
-    .header-center p { font-size: 0.8rem; }
-    .slide-content h2 { font-size: 1.4rem; }
-    .navbar a { display: block; margin:6px 0; }
-    .carousel-wrap { height: 250px; }
-    .arrow{width:36px;height:36px;}
-    .dot{width:10px;height:10px;}
-  }
 </style>
 </head>
 <body>
@@ -167,7 +251,7 @@
  </marquee>
 </div>
 
-<!-- HEADER -->
+<!-- HEADER FROM FIRST PAGE -->
 <header>
   <div class="header-center">
     <img src="IMG-20250911-WA0006.jpg" alt="Logo">
@@ -193,8 +277,12 @@
 <div class="carousel-wrap">
   <div class="carousel" id="carousel">
     <div class="slides" id="slidesContainer"></div>
+
+    <!-- arrows -->
     <div class="arrow arrow-left" id="prevBtn">&#10094;</div>
     <div class="arrow arrow-right" id="nextBtn">&#10095;</div>
+
+    <!-- dots -->
     <div class="dots" id="dotsContainer"></div>
   </div>
 </div>
@@ -225,7 +313,6 @@
 <div id="topBtn" title="Back to top">⬆</div>
 
 <script>
-// ----- carousel JS (kept same) -----
 const slides = [
   { title: "स्वछता अभियान", text: "हमारा गांव, हमारा गर्व — सामुदायिक सफाई अभियान में जुड़ें", ctaText: "Join Clean Drive", ctaLink:"join.html", backgroundImage: "header-bg1.png" },
   { title: "जन-जन तक पानी की व्यवस्था", text: "सभी ग्रामीणों के लिए पानी की सुचारू और स्वच्छ व्यवस्था सुनिश्चित करने के लिए योजना बनाई गई है। आप भी सहभागिता करें और इसे सफल बनाएं। — अभी रजिस्टर करें", ctaText: "Register", ctaLink:"join.html", backgroundImage: "header-bg9.png" },
@@ -270,26 +357,53 @@ const updateUI = () => {
   Array.from(dotsContainer.children).forEach((d, idx) => d.classList.toggle('active', idx === current));
 };
 
-const goToSlide = (index) => { current = (index + total) % total; updateUI(); resetAutoplay(); };
+const goToSlide = (index) => {
+  current = (index + total) % total;
+  updateUI();
+  resetAutoplay();
+};
+
 document.getElementById('prevBtn').addEventListener('click', () => { goToSlide(current - 1); });
 document.getElementById('nextBtn').addEventListener('click', () => { goToSlide(current + 1); });
+
 window.addEventListener('resize', () => setTimeout(updateUI, 120));
-function startAutoplay(){ if(autoplayTimer) clearInterval(autoplayTimer); autoplayTimer = setInterval(()=> { goToSlide(current + 1); }, autoplayInterval); }
+
+function startAutoplay(){
+  if(autoplayTimer) clearInterval(autoplayTimer);
+  autoplayTimer = setInterval(()=> { goToSlide(current + 1); }, autoplayInterval);
+}
 function resetAutoplay(){ startAutoplay(); }
 startAutoplay();
+
 let startX = 0, endX = 0;
 slidesContainer.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
 slidesContainer.addEventListener('touchmove', e => { endX = e.touches[0].clientX; });
-slidesContainer.addEventListener('touchend', () => { const diff = startX - endX; if(Math.abs(diff) > 50){ if(diff>0) goToSlide(current+1); else goToSlide(current-1); } });
-function initSlider(){ if(total===0){ const s=document.createElement('div'); s.className='slide'; s.style.background='#444'; s.innerHTML='<div style="color:#fff;padding:30px;text-align:center">No slides. Add slides array in script.</div>'; slidesContainer.appendChild(s); return; } Array.from(dotsContainer.children)[0]?.classList.add('active'); updateUI(); }
+slidesContainer.addEventListener('touchend', () => {
+  const diff = startX - endX;
+  if(Math.abs(diff) > 50) {
+    if(diff > 0) goToSlide(current + 1);
+    else goToSlide(current - 1);
+  }
+});
+
+function initSlider(){
+  if(total === 0){
+    const s = document.createElement('div'); s.className='slide'; s.style.background='#444';
+    s.innerHTML = '<div style="color:#fff;padding:30px;text-align:center">No slides. Add slides array in script.</div>';
+    slidesContainer.appendChild(s);
+    return;
+  }
+  Array.from(dotsContainer.children)[0]?.classList.add('active');
+  updateUI();
+}
 initSlider();
 
 fetch("https://api.countapi.xyz/hit/amola-website/total_visitors?cacheBuster="+Math.random())
-  .then(r=>r.json()).then(d=>document.getElementById('visitorNumber').textContent=d.value).catch(()=>{});
+  .then(r=>r.json()).then(d=>document.getElementById('visitorNumber').textContent = d.value).catch(()=>{});
 
-const topBtn=document.getElementById('topBtn');
-window.onscroll=function(){ topBtn.style.display=(window.pageYOffset>300)?'flex':'none'; };
-topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const topBtn = document.getElementById('topBtn');
+window.onscroll = function(){ topBtn.style.display = (window.pageYOffset > 300) ? 'flex' : 'none'; };
+topBtn.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
 </script>
 </body>
 </html>
