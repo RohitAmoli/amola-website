@@ -54,38 +54,35 @@
       font-weight: 300;
     }
 
-    /* NAVBAR */
-nav.navbar {
-  background-color: #000;
-  padding: 16px 0; /* slightly bigger height */
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap; /* prevent wrapping */
-  overflow-x: auto; /* horizontal scroll on small screens */
-  -webkit-overflow-scrolling: touch; /* smooth swipe on mobile */
-  text-align: center;
-  animation: fadeIn 1.2s ease-in-out;
-}
+    /* NAVBAR FIXED HORIZONTAL */
+    nav.navbar {
+      background-color: #000;
+      padding: 16px 0;
+      display: flex;
+      flex-wrap: nowrap; /* prevent wrapping */
+      overflow-x: auto; /* horizontal scroll on small screens */
+      -webkit-overflow-scrolling: touch; /* smooth swipe on mobile */
+      scrollbar-width: none; /* hide scrollbar in Firefox */
+    }
 
-nav.navbar a {
-  color: white;
-  text-decoration: none;
-  margin: 0 16px; /* more spacing for touch targets */
-  font-weight: 500;
-  transition: color 0.3s, transform 0.3s;
-  flex: 0 0 auto; /* prevent shrinking */
-}
+    nav.navbar::-webkit-scrollbar {
+      display: none; /* hide scrollbar in Chrome/Safari */
+    }
 
-nav.navbar a:hover {
-  color: #ffe600;
-  transform: scale(1.1);
-}
+    nav.navbar a {
+      flex: 0 0 auto; /* prevent shrinking */
+      color: white;
+      text-decoration: none;
+      margin: 0 16px;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+      white-space: nowrap; /* prevent text wrapping */
+    }
 
-/* Hide scrollbar but keep scrolling */
-nav.navbar::-webkit-scrollbar {
-  display: none;
-}
-
+    nav.navbar a:hover {
+      color: #ffe600;
+      transform: scale(1.1);
+    }
 
     section#about {
       padding: 60px 20px;
@@ -260,5 +257,3 @@ nav.navbar::-webkit-scrollbar {
 
 </body>
 </html>
-
-
