@@ -79,8 +79,6 @@
     padding: 10px 0;
     text-align: center;
     animation: fadeIn 1.2s ease-in-out;
-    overflow-x: auto;
-    white-space: nowrap;
   }
   nav.navbar a {
     color: white;
@@ -88,7 +86,6 @@
     margin: 0 12px;
     font-weight: 500;
     transition: color 0.3s, transform 0.3s;
-    display: inline-block;
   }
   nav.navbar a:hover {
     color: #ffe600;
@@ -214,24 +211,27 @@
   #topBtn:hover{transform:scale(1.08)}
 
   /* responsive */
-  @media (max-width:900px){ 
-    .slide-content h2{font-size:1.6rem} 
-  }
+  @media (max-width:900px){ .slide-content h2{font-size:1.6rem} }
   @media (max-width:600px){ 
-    .arrow{width:36px;height:36px;}
+    .arrow{width:40px;height:40px} 
     .slide-content h2{font-size:1.4rem} 
-    header{padding:20px 10px}
-    .header-center img{width:70px;height:70px}
-    .header-center h1{font-size:1.3rem}
-    .header-center p{font-size:0.8rem}
-    .carousel-wrap{height:250px}
-    .dot{width:10px;height:10px}
+    header{padding:40px 15px} 
+    .header-center h1{font-size:1.6rem} 
+    .header-center p{font-size:0.9rem} 
 
     /* Navbar horizontal scroll for mobile */
-    nav.navbar { overflow-x:auto; white-space:nowrap; }
-    nav.navbar a { display:inline-block; margin:0 8px; }
+    nav.navbar {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+    nav.navbar a {
+      display: inline-block;
+      margin: 0 12px;
+    }
   }
-
+  
   /* ANIMATIONS */
   @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -270,7 +270,7 @@
   <a href="join.html">Join Us</a>
   <a href="donate.html">Support Us</a>
   <a href="contact.html">Contact</a>
-  <a href="member.html">Member Login</a>
+  <a href="member.html">Login</a>
 </nav>
 
 <!-- CAROUSEL -->
