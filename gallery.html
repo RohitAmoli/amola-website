@@ -232,8 +232,19 @@ fetch(apiURL)
     });
   })
   .catch(err => console.error("Error loading gallery:", err));
+
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.onkeydown = function(e) {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+        return false;
+    }
+};
+
+  
 </script>
 
 </body>
 </html>
+
 
