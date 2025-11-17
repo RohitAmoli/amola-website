@@ -6,248 +6,190 @@
 <title>Amola Yuva Shakti Mandal Samiti</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0b0f14;
-    --panel:#0f1720;
-    --glass: rgba(255,255,255,0.04);
-    --accent: #00f0ff;
-    --accent-2: #00b1ff;
-    --muted: #9aa7b2;
-    --glass-border: rgba(255,255,255,0.06);
-    --glow: 0 10px 30px rgba(0,240,255,0.06), 0 2px 8px rgba(0,0,0,0.6);
-    --card-elev: 0 10px 30px rgba(2,6,23,0.6);
-    --glass-blur: 8px;
-    --radius-lg: 16px;
-    --radius-md: 12px;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background:
-      radial-gradient(1200px 600px at 10% 10%, rgba(0,176,255,0.03), transparent 8%),
-      radial-gradient(1000px 400px at 90% 90%, rgba(0,176,255,0.02), transparent 6%),
-      var(--bg);
-    color:#e6f2f7;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    -webkit-touch-callout:none;
-    -webkit-user-select:none;
-    user-select: none;
-    animation:fadePage .9s ease;
-  }
-  @keyframes fadePage{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+:root{
+  --bg:#0b0f14;
+  --panel:#0f1720;
+  --glass: rgba(255,255,255,0.04);
+  --accent: #00f0ff;
+  --accent-2: #00b1ff;
+  --muted: #9aa7b2;
+  --glass-border: rgba(255,255,255,0.06);
+  --glow: 0 10px 30px rgba(0,240,255,0.06), 0 2px 8px rgba(0,0,0,0.6);
+  --card-elev: 0 10px 30px rgba(2,6,23,0.6);
+  --glass-blur: 8px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,176,255,0.03), transparent 8%),
+             radial-gradient(1000px 400px at 90% 90%, rgba(0,176,255,0.02), transparent 6%), var(--bg);
+  color:#e6f2f7;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  user-select: none;
+  animation:fadePage .9s ease;
+}
+@keyframes fadePage{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-  /* ===== HEADER ===== */
-  header {
-    position: relative;
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.25)),
-      url('slide2.png') center/cover no-repeat;
-    color: #eafcff;
-    min-height: 200px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding: 28px 18px;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
-    box-shadow: inset 0 -60px 120px rgba(0,0,0,0.35);
-    overflow:hidden;
-  }
-  header::before{
-    content: "";
-    position: absolute;
-    inset: -10% -10% auto auto;
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle at 20% 20%, rgba(0,240,255,0.06), transparent 25%);
-    filter: blur(40px);
-    transform: rotate(22deg);
-    pointer-events:none;
-  }
+/* HEADER */
+header {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.25)),
+              url('slide2.png') center/cover no-repeat;
+  color: #eafcff;
+  min-height: 200px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 28px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  box-shadow: inset 0 -60px 120px rgba(0,0,0,0.35);
+  overflow:hidden;
+}
+header::before{
+  content: "";
+  position: absolute;
+  inset: -10% -10% auto auto;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle at 20% 20%, rgba(0,240,255,0.06), transparent 25%);
+  filter: blur(40px);
+  transform: rotate(22deg);
+  pointer-events:none;
+}
+.header-center {
+  position: relative;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  z-index:2;
+  padding:14px 20px;
+  border-radius:24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: var(--card-elev);
+  border:1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(var(--glass-blur));
+}
+.header-center img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.6), 0 0 18px rgba(0,176,255,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+.header-text { display:flex; flex-direction:column; align-items:flex-start; gap:4px; }
+.header-center h1 {
+  font-size: 1.45rem; font-weight:700; margin:0; letter-spacing:0.6px; color:#e9ffff;
+  text-shadow: 0 6px 26px rgba(0,176,255,0.03);
+}
+.header-center p{ font-size:0.88rem; margin:0; font-weight:300; color:var(--muted); }
+.header-center h1::after{
+  content:"";
+  display:block;
+  height:3px;
+  width:60%;
+  margin-top:8px;
+  border-radius:6px;
+  background: linear-gradient(90deg, transparent, rgba(0,240,255,0.25), transparent);
+  opacity:0.9;
+}
 
-  .header-center {
-    position: relative;
-    display:flex;
-    align-items:center;
-    gap:16px;
-    z-index:2;
-    padding:14px 20px;
-    border-radius:24px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    box-shadow: var(--card-elev);
-    border:1px solid rgba(255,255,255,0.03);
-    backdrop-filter: blur(var(--glass-blur));
-  }
+/* NAVBAR - horizontal scroll on mobile */
+nav.navbar {
+  margin:18px auto 0;
+  max-width:1200px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  padding:10px 14px;
+  border-radius:14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0.06));
+  border:1px solid var(--glass-border);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+nav.navbar::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+nav.navbar a {
+  color: var(--muted);
+  text-decoration: none;
+  padding:8px 12px;
+  font-weight:600;
+  border-radius:10px;
+  transition: all .22s cubic-bezier(.2,.9,.3,1);
+  position:relative;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+nav.navbar a:hover {
+  color: #eaffff;
+  transform: translateY(-3px);
+}
+nav.navbar a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%) scaleX(0);
+  bottom:3px;
+  width:60%;
+  height:3px;
+  border-radius:4px;
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  transition: transform .28s;
+}
+nav.navbar a:hover::after{ transform:translateX(-50%) scaleX(1); }
 
-  .header-center img {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(255,255,255,0.06);
-    box-shadow: 0 6px 22px rgba(0,0,0,0.6), 0 0 18px rgba(0,176,255,0.08);
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  }
+/* CAROUSEL */
+.carousel-wrap { margin-top:18px; position:relative; width:100%; height:420px; overflow:hidden;
+  border-radius:18px; max-width:1200px; margin-left:auto; margin-right:auto;
+  box-shadow: var(--card-elev); border:1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0.06));
+}
+.carousel { width:100%; height:100%; position:relative; display:flex; align-items:center; justify-content:center; }
+.slides { display:flex; width:100%; height:100%; transition: transform .7s cubic-bezier(.22,.9,.3,1); }
+.slide{ min-width:100%; height:100%; position:relative; background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; color:#fff; }
+.slide::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(3,8,15,0.12), rgba(0,0,0,0.6)); pointer-events:none; }
+.slide-content{ position:relative; z-index:2; max-width:900px; padding:24px; text-align:center; backdrop-filter: blur(4px); }
+.slide-content h2 { font-size:2rem; margin:0 0 10px 0; letter-spacing:0.6px; color:#eaffff; text-shadow: 0 10px 30px rgba(0,176,255,0.06); display:inline-block; }
+.slide-content p{ font-size:1.05rem; margin:0 0 16px 0; color:var(--muted); max-height:80px; overflow:hidden; text-overflow:ellipsis; }
+.slide-content .cta{
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  padding:12px 24px;
+  border-radius:999px;
+  color:#00121a;
+  font-weight:700;
+  text-decoration:none;
+  display:inline-block;
+  box-shadow: 0 12px 40px rgba(0,176,255,0.12);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.slide-content .cta:hover{ transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 50px rgba(0,176,255,0.18); }
 
-  .header-text {
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:4px;
-  }
-  .header-center h1 {
-    font-size: 1.45rem;
-    font-weight:700;
-    margin:0;
-    letter-spacing:0.6px;
-    color: #e9ffff;
-    text-shadow: 0 6px 26px rgba(0,176,255,0.03);
-  }
-  .header-center p {
-    font-size:0.88rem;
-    margin:0;
-    font-weight:300;
-    color:var(--muted);
-  }
-  .header-center h1::after{
-    content:"";
-    display:block;
-    height:3px;
-    width:60%;
-    margin-top:8px;
-    border-radius:6px;
-    background: linear-gradient(90deg, transparent, rgba(0,240,255,0.25), transparent);
-    opacity:0.9;
-  }
+/* CARDS */
+.cards{ display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin:32px 12px; }
+.cards .card{ background: var(--panel); padding:16px; border-radius:var(--radius-md); width:260px; box-shadow:var(--card-elev); text-align:center; }
 
-  /* NAVBAR - glassy horizontal with mobile support */
-  nav.navbar {
-    margin:18px auto 0;
-    max-width:1200px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:10px 14px;
-    border-radius:14px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0.06));
-    border:1px solid var(--glass-border);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-    backdrop-filter: blur(8px);
-    position: relative;
-  }
+/* FOOTER */
+footer{ margin-top:32px; padding:24px; text-align:center; font-size:0.9rem; color:var(--muted); }
 
-  .nav-links {
-    display: flex;
-    gap: 14px;
-  }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    padding:8px 12px;
-    font-weight:600;
-    border-radius:10px;
-    transition: all .22s cubic-bezier(.2,.9,.3,1);
-    position:relative;
-    overflow:visible;
-  }
-  .nav-links a:hover {
-    color: #eaffff;
-    transform: translateY(-3px);
-  }
-  .nav-links a::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%) scaleX(0);
-    bottom:3px;
-    width:60%;
-    height:3px;
-    border-radius:4px;
-    background: linear-gradient(90deg,var(--accent),var(--accent-2));
-    transition: transform .28s;
-  }
-  .nav-links a:hover::after{ transform:translateX(-50%) scaleX(1); }
+/* TOP BUTTON */
+#topBtn{ position:fixed; bottom:24px; right:24px; background:var(--accent); color:#00121a; padding:10px 12px; border-radius:50%; cursor:pointer; display:none; z-index:999; }
 
-  /* Hamburger menu */
-  .hamburger {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--muted);
-    user-select:none;
-  }
-
-  @media (max-width: 768px){
-    .hamburger { display: block; }
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      background: var(--panel);
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      padding: 10px 0;
-      gap: 0;
-      border-radius: 0 0 14px 14px;
-      z-index: 10;
-    }
-    .nav-links.show { display: flex; }
-    .nav-links a { padding: 12px 16px; }
-  }
-
-  /* CAROUSEL & CARDS (same as before) */
-  .carousel-wrap {
-    margin-top:18px;
-    position:relative;
-    width:100%;
-    height:420px;
-    overflow:hidden;
-    border-radius:18px;
-    max-width:1200px;
-    margin-left:auto;
-    margin-right:auto;
-    box-shadow: var(--card-elev);
-    border:1px solid rgba(255,255,255,0.03);
-    background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0.06));
-  }
-  .carousel { width:100%; height:100%; position:relative; display:flex; align-items:center; justify-content:center; }
-  .slides { display:flex; width:100%; height:100%; transition: transform .7s cubic-bezier(.22,.9,.3,1); }
-  .slide{ min-width:100%; height:100%; position:relative; background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; color:#fff; }
-  .slide::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(3,8,15,0.12), rgba(0,0,0,0.6)); pointer-events:none; }
-  .slide-content{ position:relative; z-index:2; max-width:900px; padding:24px; text-align:center; backdrop-filter: blur(4px); }
-  .slide-content h2 { font-size:2rem; margin:0 0 10px 0; letter-spacing:0.6px; color:#eaffff; text-shadow: 0 10px 30px rgba(0,176,255,0.06); display:inline-block; }
-  .slide-content h2 span { display:inline-block; }
-  .slide-content p{ font-size:1.05rem; margin:0 0 16px 0; color:var(--muted); max-height:80px; overflow:hidden; text-overflow:ellipsis; }
-  .slide-content .cta{
-    background: linear-gradient(90deg,var(--accent),var(--accent-2));
-    padding:12px 24px;
-    border-radius:999px;
-    color:#00121a;
-    font-weight:700;
-    text-decoration:none;
-    display:inline-block;
-    box-shadow: 0 12px 40px rgba(0,176,255,0.12);
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .slide-content .cta:hover{ transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 50px rgba(0,176,255,0.18); }
-
-  /* Cards */
-  .cards { display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin:28px auto; max-width:1200px; }
-  .card { flex:1 1 280px; background: var(--panel); padding:20px; border-radius: var(--radius-md); box-shadow: var(--card-elev); border:1px solid rgba(255,255,255,0.03); }
-
-  /* Footer */
-  footer { text-align:center; padding:18px; font-size:0.85rem; color:var(--muted); }
-
-  /* Top button */
-  #topBtn { display:none; position:fixed; bottom:28px; right:28px; z-index:99; cursor:pointer; padding:12px; font-size:1.5rem; border-radius:50%; background:var(--accent); color:#00121a; align-items:center; justify-content:center; }
+/* RESPONSIVE */
+@media(max-width:768px){
+  .header-center{ flex-direction:column; text-align:center; }
+  .cards{ flex-direction:column; align-items:center; }
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="header-center" role="banner" aria-label="Site header">
     <img src="placeholder1.png" alt="Amola logo">
@@ -260,27 +202,21 @@
 
 <!-- NAVBAR -->
 <nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="hamburger" id="hamburger">&#9776;</div>
-  <div class="nav-links" id="navLinks">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="activities.html">Initiatives</a>
-    <a href="live.html">Live</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="join.html">Join Us</a>
-    <a href="donate.html">Support Us</a>
-    <a href="contact.html">Contact</a>
-    <a href="member.html">Login</a>
-  </div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="activities.html">Initiatives</a>
+  <a href="live.html">Live</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="join.html">Join Us</a>
+  <a href="donate.html">Support Us</a>
+  <a href="contact.html">Contact</a>
+  <a href="member.html">Login</a>
 </nav>
 
 <!-- CAROUSEL -->
 <div class="carousel-wrap" aria-roledescription="carousel" aria-label="Highlights">
   <div class="carousel" id="carousel">
     <div class="slides" id="slidesContainer"></div>
-    <div class="arrow arrow-left" id="prevBtn" role="button" aria-label="Previous slide">&#10094;</div>
-    <div class="arrow arrow-right" id="nextBtn" role="button" aria-label="Next slide">&#10095;</div>
-    <div class="dots" id="dotsContainer" aria-hidden="false"></div>
   </div>
 </div>
 
@@ -300,106 +236,44 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div>© 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br><b>Designed & Managed by Rohit Amoli</b></div>
   <div id="visitorCounter" style="margin-top:8px">👥 Visitors: <span id="visitorNumber">0</span></div>
 </footer>
 
-<!-- TOP BUTTON -->
-<div id="topBtn" title="Back to top" aria-hidden="true">⬆</div>
+<div id="topBtn" title="Back to top">⬆</div>
 
 <script>
-/* === SLIDES ARRAY === */
+/* === SLIDES === */
 const slides = [
   { title: "स्वछता अभियान", text: "हमारा गांव, हमारा गर्व — सामुदायिक सफाई अभियान में जुड़ें", ctaText: "Join Clean Drive", ctaLink:"join.html", backgroundImage: "slide1.png" },
-  { title: "जन-जन तक पानी की व्यवस्था", text: "सभी ग्रामीणों के लिए पानी की सुचारू और स्वच्छ व्यवस्था सुनिश्चित करने के लिए योजना बनाई गई है। आप भी सहभागिता करें और इसे सफल बनाएं। — अभी रजिस्टर करें", ctaText: "Register", ctaLink:"join.html", backgroundImage: "slide2.png" },
+  { title: "जन-जन तक पानी की व्यवस्था", text: "सभी ग्रामीणों के लिए पानी की सुचारू और स्वच्छ व्यवस्था सुनिश्चित करने के लिए योजना बनाई गई है।", ctaText: "Register", ctaLink:"join.html", backgroundImage: "slide2.png" },
   { title: "खेल उत्सव", text: "खेलकूद से स्वस्थ जीवन — भागीदारी के लिए संपर्क करें", ctaText: "Participate", ctaLink:"activities.html", backgroundImage: "slide3.png" }
 ];
-
 const slidesContainer = document.getElementById('slidesContainer');
-const dotsContainer = document.getElementById('dotsContainer');
-
-slides.forEach((s, i) => {
+slides.forEach((s)=>{
   const slide = document.createElement('div');
-  slide.className = 'slide';
+  slide.className='slide';
   slide.style.backgroundImage = `url('${s.backgroundImage}')`;
-  slide.setAttribute('data-index', i);
-
-  const content = document.createElement('div');
-  content.className = 'slide-content';
-
-  const h = document.createElement('h2');
-  h.textContent = s.title;
-
-  const p = document.createElement('p'); p.textContent = s.text;
-  const a = document.createElement('a'); a.className = 'cta'; a.textContent = s.ctaText || 'Learn More';
-  a.href = s.ctaLink || '#';
-
-  content.appendChild(h); content.appendChild(p); content.appendChild(a);
-  slide.appendChild(content);
-  slidesContainer.appendChild(slide);
-
-  const dot = document.createElement('div');
-  dot.className = 'dot';
-  dot.setAttribute('data-index', i);
-  dot.addEventListener('click', () => goToSlide(i));
-  dotsContainer.appendChild(dot);
+  const content = document.createElement('div'); content.className='slide-content';
+  content.innerHTML = `<h2>${s.title}</h2><p>${s.text}</p><a class="cta" href="${s.ctaLink}">${s.ctaText}</a>`;
+  slide.appendChild(content); slidesContainer.appendChild(slide);
 });
 
-// Carousel logic
-let current = 0;
-const total = slides.length;
-const autoplayInterval = 4000;
-let autoplayTimer = null;
+/* SIMPLE CAROUSEL LOGIC */
+let current=0; const total=slides.length;
+const updateUI=()=>{ slidesContainer.style.transform=`translateX(-${current*100}%)`; };
+const goToSlide=(i)=>{ current=(i+total)%total; updateUI(); };
+setInterval(()=>goToSlide(current+1),4000);
 
-const updateUI = () => {
-  const width = slidesContainer.clientWidth;
-  slidesContainer.style.transform = `translateX(-${current * width}px)`;
-  Array.from(dotsContainer.children).forEach((d, idx) => d.classList.toggle('active', idx === current));
-};
+/* TOP BUTTON */
+const topBtn=document.getElementById('topBtn');
+window.onscroll=()=>topBtn.style.display=(window.pageYOffset>300)?'flex':'none';
+topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-const goToSlide = (index) => {
-  current = (index + total) % total;
-  updateUI();
-  resetAutoplay();
-};
-
-document.getElementById('prevBtn').addEventListener('click', () => { goToSlide(current - 1); });
-document.getElementById('nextBtn').addEventListener('click', () => { goToSlide(current + 1); });
-
-window.addEventListener('resize', () => setTimeout(updateUI, 120));
-
-function startAutoplay(){
-  if(autoplayTimer) clearInterval(autoplayTimer);
-  autoplayTimer = setInterval(()=> { goToSlide(current + 1); }, autoplayInterval);
-}
-function resetAutoplay(){ startAutoplay(); }
-startAutoplay();
-
-let startX = 0, endX = 0;
-slidesContainer.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-slidesContainer.addEventListener('touchmove', e => { endX = e.touches[0].clientX; });
-slidesContainer.addEventListener('touchend', () => {
-  const diff = startX - endX;
-  if(Math.abs(diff) > 50) {
-    if(diff > 0) goToSlide(current + 1);
-    else goToSlide(current - 1);
-  }
-});
-
-/* === TOP BUTTON === */
-const topBtn = document.getElementById("topBtn");
-window.onscroll = () => topBtn.style.display = (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) ? "flex" : "none";
-topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-
-/* === MOBILE NAVBAR === */
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
-
-/* === VISITOR COUNTER === */
-document.getElementById('visitorNumber').textContent = Math.floor(Math.random()*500+100);
+/* VISITOR COUNTER */
+document.getElementById('visitorNumber').textContent=Math.floor(Math.random()*500+100);
 </script>
+
 </body>
 </html>
