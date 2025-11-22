@@ -40,6 +40,45 @@
     @keyframes fadeInDown { from { opacity:0; transform:translateY(-30px);} to { opacity:1; transform:translateY(0);} }
     @keyframes fadeInUp { from { opacity:0; transform:translateY(30px);} to { opacity:1; transform:translateY(0);} }
     @keyframes fadeIn { from { opacity:0;} to { opacity:1;} }
+
+
+/* Highlight / Blinking Tab Style */
+nav.navbar a.highlight-tab {
+  background: linear-gradient(90deg, #ff0066, #ffcc00, #00ffcc, #0066ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  animation: gradientShift 3s ease infinite, neonPulse 1.5s infinite alternate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav.navbar a.highlight-tab:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 15px #fff, 0 0 25px #ff0, 0 0 35px #0ff;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+
+@keyframes neonPulse {
+  0% { text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff; }
+  50% { text-shadow:0 0 15px #fff, 0 0 25px #ff0, 0 0 35px #0ff; }
+  100% { text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff; }
+}
+
+
+
+
+    
   </style>
 </head>
 
@@ -63,6 +102,7 @@
   <a href="donate.html">Support Us</a>
   <a href="contact.html">Contact</a>
   <a href="member.html">Login</a>
+   <a href="news.html" class="highlight-tab">News</a>
 </nav>
 
 <section id="loginSection">
@@ -283,6 +323,7 @@ document.onkeydown = function(e) {
 
 </body>
 </html>
+
 
 
 
