@@ -263,10 +263,38 @@ nav.navbar a.highlight-tab:hover {
 </nav>
 
 <!-- CONTACT SECTION -->
+<!-- CONTACT SECTION -->
 <section class="contact-section">
   <div class="content">
     <h2>Contact Us</h2>
-    <p>📍 <b>Amola Village, Pauri Garhwal, Uttarakhand</b></p>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('permanent')">Permanent Address</button>
+      <button class="tab-btn" onclick="showTab('correspondence')">Correspondence Address</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="permanent" class="tab-content">
+      <div class="address-box">
+        <p>📍 <b>Village & P.O.:</b> Amola</p>
+        <p>🏢 <b>Block:</b> Yamkeshwar</p>
+        <p>📍 <b>District:</b> Pauri Garhwal, Uttarakhand</p>
+        <p>📫 <b>PIN:</b> 246121</p>
+        <p>📝 <b>Samiti Registration No:</b> 12345/XYZ</p>
+      </div>
+    </div>
+
+    <div id="correspondence" class="tab-content" style="display:none;">
+      <div class="address-box">
+        <p>📍 <b>Street:</b> Gali No-3, Bapu Gram, IDPL Veerbhadra</p>
+        <p>🏢 <b>City:</b> Rishikesh, Dehradun, Uttarakhand</p>
+        <p>📫 <b>PIN:</b> 249202</p>
+        <p>📝 <b>Samiti Registration No:</b> 12345/XYZ</p>
+      </div>
+    </div>
+
+    <!-- Other Contact Info -->
     <p>📧 <b>Email:</b> <a href="mailto:contact@amolayuvashaktimandalsamiti.org">contact@amolayuvashaktimandalsamiti.org</a></p>
     <p>☎️ <b>Phone:</b> +91 XXXXX XXXXX</p>
     <p>🌐 <b>Follow Us:</b><br>
@@ -277,6 +305,69 @@ nav.navbar a.highlight-tab:hover {
   </div>
 </section>
 
+<!-- CSS for address box and tabs (add to your <style>) -->
+<style>
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    background: rgba(0,198,255,0.3);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  .tab-btn:hover {
+    background: rgba(0,198,255,0.6);
+  }
+  .tab-btn.active {
+    background: #00c6ff;
+    color: #111;
+  }
+  .tab-content {
+    animation: fadeInUp 0.5s ease;
+  }
+
+  /* Address box style */
+  .address-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin: 10px 0;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .address-box p {
+    margin: 6px 0;
+    font-size: 1.05em;
+  }
+
+  @media (max-width: 600px) {
+    .tabs { flex-direction: column; }
+    .tab-btn { width: 100%; text-align: center; }
+    .address-box { text-align: center; }
+  }
+</style>
+
+<!-- JavaScript for Tabs (add before </body>) -->
+<script>
+  function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(div => div.style.display = 'none');
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(tabId).style.display = 'block';
+    event.currentTarget.classList.add('active');
+  }
+</script>
+
+
 <!-- FOOTER -->
 <footer>
   © 2025 Amola Yuva Shakti Mandal Samiti | All Rights Reserved<br>
@@ -285,6 +376,7 @@ nav.navbar a.highlight-tab:hover {
 
 </body>
 </html>
+
 
 
 
