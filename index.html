@@ -291,7 +291,7 @@ const slides = [
  
   { title: "सामाजिक व सांस्कृतिक विकास", text: "समाज के सामाजिक और सांस्कृतिक विकास को बढ़ावा देना।!", ctaText: "Register", ctaLink:"join.html", backgroundImage: "slide5.png" },
   { title: "शिक्षा, स्वास्थ्य व स्वच्छता", text: "सबके लिए गुणवत्तापूर्ण शिक्षा, बेहतर स्वास्थ्य और बेहतर स्वच्छता।", ctaText: "Participate", ctaLink:"activities.html", backgroundImage: "slide6.png" },
-  { title: "गांव का समग्र विकास", text: "हमारा गाँव, हमारी जिम्मेदारी — मिलकर समग्र विकास की ओर कदम बढ़ाएँ।", ctaText: "Join Clean Drive", ctaLink:"join.html", backgroundImage: "slide7.png" },
+  { title: "गांव का समग्र विकास", text: "हमारा गाँव, हमारी जिम्मेदारी — मिलकर समग्र विकास की ओर कदम बढ़ाएँ।", ctaText: "Participate", ctaLink:"join.html", backgroundImage: "slide7.png" },
   { title: "पर्यावरण व संरक्षण", text: "स्वच्छ पर्यावरण, स्वस्थ जीवन — संरक्षण के प्रयासों में शामिल हों।", ctaText: "Register", ctaLink:"join.html", backgroundImage: "slide8.png" },
   { title: "युवा व महिला सशक्तिकरण", text: "युवा और महिलाएँ — समाज की नई ताकत। सशक्तिकरण के लिए जुड़ें।", ctaText: "Participate", ctaLink:"activities.html", backgroundImage: "slide9.png" },
   { title: "सांस्कृतिक उत्सव", text: "हमारी संस्कृति, हमारी पहचान — सांस्कृतिक कार्यक्रमों में भाग लें।", ctaText: "Participate", ctaLink:"activities.html", backgroundImage: "slide10.png" }
@@ -312,7 +312,7 @@ slides.forEach((s)=>{
 let current=0; const total=slides.length;
 const updateUI=()=>{ slidesContainer.style.transform=`translateX(-${current*100}%)`; };
 const goToSlide=(i)=>{ current=(i+total)%total; updateUI(); };
-setInterval(()=>goToSlide(current+1),4000);
+setInterval(()=>goToSlide(current+1),6000);
 
 /* TOP BUTTON */
 const topBtn=document.getElementById('topBtn');
@@ -325,6 +325,7 @@ document.getElementById('visitorNumber').textContent=Math.floor(Math.random()*50
 
 </body>
 </html>
+
 
 
 
